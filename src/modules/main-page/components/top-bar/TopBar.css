@@ -1,6 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Monda);
+
+
+
 h2 {
-  font: normal 2.7em 'Pacifico', cursive;
+  font-family: 'Monda', sans-serif;
   text-align: center;
   display: flex;
   flex-direction: row;
