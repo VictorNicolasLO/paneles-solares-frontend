@@ -1,1 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+h2 {
+  font: normal 2.7em 'Pacifico', cursive;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color:white;
+}
 
+h2:before,
+h2:after {
+  flex-grow: 1;
+  height: 3px;
+  content: '\a0';
+  background-color:white;
+  position: relative;
+  top: 1em;
+  margin-left: 15%;
+  margin-right: 5%;
+
+}
+
+h2:before {
+  margin-right: 15px;
+}
+
+h2:after {
+  margin-left: 15px;
+}

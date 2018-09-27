@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Playground.css';
-import ItemMenu from '../components/item-menu/ItemMenu';
+import TopBar from '../components/top-bar/TopBar';
+
 export default class Playground extends Component {
   render() {
-    return <ItemMenu />;
+    return <TopBar />;
   }
 }
