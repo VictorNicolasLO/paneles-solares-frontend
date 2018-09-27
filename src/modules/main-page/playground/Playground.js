@@ -4,6 +4,7 @@ import TopBar from '../components/top-bar/TopBar';
 
 export default class Playground extends Component {
   render() {
-    return <TopBar />;
+    return <TopBar path="My awesome path" />;
   }
 }
+
