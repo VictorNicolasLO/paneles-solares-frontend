@@ -7,7 +7,7 @@ export default class TopBar extends Component {
 
     const { path } = this.props
     
-    let title = 'Intituto Tecnológico de Culiacán'
+    let title = 'Instituto Tecnológico de Culiacán'
 
     if(path){
       title = `${title} - ${path}`
