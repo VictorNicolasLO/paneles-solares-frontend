@@ -13,10 +13,12 @@ export default class TopBar extends Component {
       title = `${title} - ${path}`
     }
 
-    return <div className="component-TopBar" >
-    <h2>{title}</h2>
-    <h1></h1>
-    </div>; 
+    return(
+    <div className="component-TopBar" >
+      <h2>{title}</h2>
+      <h1></h1>
+    </div>
+    ); 
   }
 }
 
