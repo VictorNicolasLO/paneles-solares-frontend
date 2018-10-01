@@ -1,26 +1,36 @@
-.button{
-    position: absolute;
-    bottom:  5%; 
-    right: 50%;
-    color: white;
-    border-radius: 50%;
-    height: 35px;
-    width: 35px;
+.button {
+  position: absolute;
+  bottom: 3.9%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  transition: 0.3s;
+  cursor: pointer;
 }
-.hr{
-    position: absolute;
-    left: 2%;
-    bottom:  6%;
-    height: 2px;
-    width: 95%;
-    background-color: white;
+.button:hover {
+  background: rgb(214, 214, 214);
 }
 
-.h1{
-    position: fixed;
-    bottom: 2.5%;
-    left:  48.4%;
-    text-align: center;
-    font-weight: bold;
-    color:rgb(73, 0, 73);
+.hr {
+  position: absolute;
+  left: 2%;
+  bottom: 6%;
+  height: 2px;
+  width: 95%;
+  background-color: white;
+}
+
+.h1 {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(73, 0, 73);
 }
