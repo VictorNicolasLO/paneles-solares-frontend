@@ -1,1 +1,26 @@
+.button{
+    position: absolute;
+    bottom:  5%; 
+    right: 50%;
+    color: white;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+.hr{
+    position: absolute;
+    left: 2%;
+    bottom:  6%;
+    height: 2px;
+    width: 95%;
+    background-color: white;
+}
 
+.h1{
+    position: fixed;
+    bottom: 2.5%;
+    left:  48.4%;
+    text-align: center;
+    font-weight: bold;
+    color:rgb(73, 0, 73);
+}
