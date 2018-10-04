@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Playground.css';
-import ItemMenu from '../components/item-menu/ItemMenu';
+import ChartController from '../components/chart-controller';
 export default class Playground extends Component {
   render() {
-    return <ItemMenu />;
+    return <ChartController />;
   }
 }
