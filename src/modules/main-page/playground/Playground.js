@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import './Playground.css';
-import ItemMenu from '../components/item-menu/ItemMenu';
+import MainTemplate from '../components/main-template/MainTemplate'
 export default class Playground extends Component {
   render() {
-    return <ItemMenu />;
+    return <MainTemplate / > ;
   }
 }
