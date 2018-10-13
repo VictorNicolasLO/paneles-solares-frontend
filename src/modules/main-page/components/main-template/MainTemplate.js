@@ -14,6 +14,7 @@ export default class MainTemplate extends Component {
             />
           </div>
         </div>
+        {this.props.children}
       </div>
     );
   }
