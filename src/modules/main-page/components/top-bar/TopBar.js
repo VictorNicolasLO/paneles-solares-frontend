@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import './TopBar.css';
 export default class TopBar extends Component {
   render() {
-    return <div className="component-TopBar" />;
+    const { path } = this.props;
+
+    let title = 'Instituto Tecnológico de Culiacán';
+
+    if (path) {
+      title = `${title} - ${path}`;
+    }
+
+    return (
+      <div className="component-TopBar">
+        <h2>{title}</h2>
+        <div className="line" />
+      </div>
+    );
   }
 }

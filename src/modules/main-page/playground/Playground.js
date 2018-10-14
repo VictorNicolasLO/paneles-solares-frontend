@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './Playground.css';
-import FootBar from '../components/foot-bar/FootBar';
+import TopBar from '../components/top-bar/TopBar';
+
 export default class Playground extends Component {
   clickTest = () => {
     alert('Hey');
   };
 
   render() {
-    return <FootBar onShowInfo={this.clickTest} />;
+    return <TopBar path="My awesome path" />;
   }
 }
+
