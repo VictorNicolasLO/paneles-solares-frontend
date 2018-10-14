@@ -1,1 +1,23 @@
+.component-main-template {
+  width: 100%;
+  height: 100%;
+}
 
+.logo {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+  border-right: 120px solid transparent;
+  border-left: 120px solid white;
+  border-top: 120px solid white;
+  border-bottom: 120px solid transparent;
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.637));
+  position: absolute;
+}
+
+.logo > div {
+  right: 5px;
+  bottom: -5px;
+  display: inline-block;
+  position: absolute;
+}
