@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './Playground.css';
-import ItemMenu from '../components/item-menu/ItemMenu';
+import FootBar from '../components/foot-bar/FootBar';
 export default class Playground extends Component {
+  clickTest = () => {
+    alert('Hey');
+  };
+
   render() {
-    return <ItemMenu />;
+    return <FootBar onShowInfo={this.clickTest} />;
   }
 }
