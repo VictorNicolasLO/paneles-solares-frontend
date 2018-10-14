@@ -3,13 +3,18 @@
   margin-right: 2%;
 }
 
-h2 {
+.component-TopBar .title {
   font-family: 'Monda', sans-serif;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   color: white;
+  font-size: 2em;
+  opacity: 0;
+  animation: show-top-bar 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .line {
@@ -18,5 +23,19 @@ h2 {
   content: '\a0';
   background-color: white;
   position: relative;
-  top: 0.1em;
+  top: 0.3em;
+  opacity: 0;
+  animation: show-top-bar 0.7s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-top-bar {
+  from {
+    transform: translateY(-70px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

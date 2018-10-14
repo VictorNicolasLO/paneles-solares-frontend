@@ -1,1 +1,14 @@
+.component-main-menu .item-menu {
+  margin-bottom: 50px;
+}
 
+@media only screen and (max-width: 1366px) {
+  .component-main-menu .top-bar {
+    margin-bottom: 40px;
+    padding: 40px;
+  }
+
+  .component-main-menu .item-menu {
+    margin-bottom: 20px;
+  }
+}

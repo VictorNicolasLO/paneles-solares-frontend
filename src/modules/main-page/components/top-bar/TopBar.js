@@ -12,7 +12,7 @@ export default class TopBar extends Component {
 
     return (
       <div className="component-TopBar">
-        <h2>{title}</h2>
+        <div className="title">{title}</div>
         <div className="line" />
       </div>
     );

@@ -1,6 +1,6 @@
 .button {
   position: absolute;
-  bottom: 3.9%;
+  bottom: 4.5%;
   margin: auto;
   left: 0;
   right: 0;
@@ -14,6 +14,10 @@
   justify-content: center;
   transition: 0.3s;
   cursor: pointer;
+  opacity: 0;
+  animation: show-foot-bar 0.3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 .button:hover {
   background: rgb(214, 214, 214);
@@ -26,6 +30,10 @@
   height: 2px;
   width: 95%;
   background-color: white;
+  opacity: 0;
+  animation: show-foot-bar 0.3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 .h1 {
@@ -33,4 +41,28 @@
   text-align: center;
   font-weight: bold;
   color: rgb(73, 0, 73);
+  opacity: 0;
+  animation: show-foot-bar 0.3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 1366px) {
+  .button {
+    bottom: 1.5%;
+  }
+
+  .hr {
+    bottom: 3%;
+  }
+}
+
+@keyframes show-foot-bar {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

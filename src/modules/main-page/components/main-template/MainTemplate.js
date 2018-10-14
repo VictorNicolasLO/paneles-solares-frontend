@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './MainTemplate.css';
+import Grid from '@material-ui/core/Grid';
+import TopBar from '../../components/top-bar/TopBar';
 
+import FootBar from '../../components/foot-bar/FootBar';
 export default class MainTemplate extends Component {
   render() {
     return (
@@ -8,13 +11,19 @@ export default class MainTemplate extends Component {
         <div className="logo">
           <div>
             <img
-              width="100"
+              width="140"
               src="./tec-logo.png"
               alt="Logo del tecnologico de culiacan"
             />
           </div>
         </div>
+        <Grid container spacing={20}>
+          <Grid className="top-bar" item xs={12}>
+            <TopBar path="" />
+          </Grid>
+        </Grid>
         {this.props.children}
+        <FootBar />
       </div>
     );
   }
