@@ -1,1 +1,6 @@
-
+.component-Dashboard {
+  will-change: 100vw;
+  height: 100vh;
+  background: white;
+  position: relative;
+}
