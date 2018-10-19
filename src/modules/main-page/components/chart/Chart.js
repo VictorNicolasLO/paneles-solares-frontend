@@ -41,27 +41,37 @@ export default class Chart extends Component {
             scales: {
               xAxes: [
                 {
+                  ticks: {
+                    beginAtZero: true,
+                    fontColor: 'white'
+                  },
                   display: true,
                   gridLines: {
                     display: true,
                     color: 'rgba(255, 255, 255, 0.561)'
                   },
                   scaleLabel: {
+                    fontColor: 'white',
                     display: true,
-                    labelString: 'Month'
+                    labelString: 'Tiempo(h)'
                   }
                 }
               ],
               yAxes: [
                 {
+                  ticks: {
+                    beginAtZero: true,
+                    fontColor: 'white'
+                  },
                   display: true,
                   gridLines: {
                     display: true,
                     color: 'rgba(255, 255, 255, 0.561)'
                   },
                   scaleLabel: {
+                    fontColor: 'white',
                     display: true,
-                    labelString: 'Value'
+                    labelString: 'Potencia(W)'
                   }
                 }
               ]

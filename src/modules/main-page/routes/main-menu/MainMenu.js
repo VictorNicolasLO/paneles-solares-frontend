@@ -23,9 +23,11 @@ export default class MainMenu extends Component {
             justify="center"
             alignItems="center"
           >
-            <Link to="/charts" style={{ textDecoration: 'none' }}>
-              <ItemMenu name="Estacion meteorológica" Icon={Icon_1} />
-            </Link>
+            <ItemMenu
+              url="/charts"
+              name="Estacion meteorológica"
+              Icon={Icon_1}
+            />
           </Grid>
           <Grid
             item

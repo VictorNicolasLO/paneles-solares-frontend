@@ -2,4 +2,11 @@
   width: 70%;
   margin-top: -35px;
   margin-bottom: 40px;
+  animation: opacity-show 0.3s;
+}
+
+@keyframes opacity-show {
+  from {
+    opacity: 0;
+  }
 }

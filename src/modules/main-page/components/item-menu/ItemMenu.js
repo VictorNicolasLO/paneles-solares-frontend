@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import './ItemMenu.css';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+class ItemMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false
+    };
+  }
 
-export default class ItemMenu extends Component {
+  go = () => {
+    this.props.history.push('/charts');
+  };
+
   render() {
-    const { name, Icon } = this.props;
-
+    const { name, Icon, url } = this.props;
+    if (this.state.redirect) {
+      return <Redirect to={url || ''} />;
+    }
     return (
-      <div className="item-menu">
+      <div className="item-menu" onClick={this.go}>
         <div className="icon">
           <Icon className="item-menu-icon" />
         </div>
@@ -15,3 +29,5 @@ export default class ItemMenu extends Component {
     );
   }
 }
+
+export default withRouter(ItemMenu);
