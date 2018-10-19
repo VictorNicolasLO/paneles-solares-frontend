@@ -53,7 +53,7 @@ export default class Chart extends Component {
                   scaleLabel: {
                     fontColor: 'white',
                     display: true,
-                    labelString: 'Tiempo(h)'
+                    labelString: 'Tiempo (h)'
                   }
                 }
               ],
@@ -71,7 +71,7 @@ export default class Chart extends Component {
                   scaleLabel: {
                     fontColor: 'white',
                     display: true,
-                    labelString: 'Potencia(W)'
+                    labelString: 'Potencia (W)'
                   }
                 }
               ]
