@@ -5,15 +5,14 @@ import './FootBar.css';
 class FootBar extends Component {
   render() {
     return (
-      <div className="component-FootBar" />,
-      (
+      <div className="component-foot-bar">
         <div>
-          <hr className="hr" />,
+          <hr className="hr" />
           <div className="button" onClick={this.props.onShowInfo}>
             <h1 className="h1">i</h1>
           </div>
         </div>
-      )
+      </div>
     );
   }
 }
