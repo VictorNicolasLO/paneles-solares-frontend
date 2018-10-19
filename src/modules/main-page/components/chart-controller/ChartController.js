@@ -31,7 +31,7 @@ export default class ChartController extends Component {
  
 
   handleClickRight = (e) =>{
-    
+
     nitem = this.state.nitem;
 
     if(nitem != exampleItem.length - 1){
@@ -41,9 +41,6 @@ export default class ChartController extends Component {
     }
   
   }
-
-  
-    
   
 
 
@@ -53,7 +50,7 @@ export default class ChartController extends Component {
 
               <h1>Flexbox Slider</h1>
               
-              <div class="wrap">
+              <div className="wrap">
                 <button onClick={this.handleClickLeft}>&laquo;</button>
                 
                       <div className="scroller">
