@@ -4,13 +4,11 @@ import LoginCard from '../../components/login-card/LoginCard';
 
 export default class Login extends Component {
   render() {
-    return( <div className= "component-Login"> 
-          
-           <div className= "SecundaryColorLogin"/>
-           <LoginCard />
-       </div>
-       
-       
+    return (
+      <div className="component-Login">
+        <div className="SecundaryColorLogin" />
+        <LoginCard />
+      </div>
     );
   }
 }

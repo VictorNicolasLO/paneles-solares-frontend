@@ -10,31 +10,50 @@
   bottom: 0;
   margin: auto;
   text-align: center;
-  }
-
-
-
-
-.input-login{
-  width: 100% !important;
-  margin:  8px 0 !important;
+  animation: show-login 0.4s;
 }
 
+.cardLogin > * {
+  opacity: 0;
+  animation: show-opacity 0.4s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
 
+.input-login {
+  width: 100% !important;
+  margin: 8px 0 !important;
+}
 
-
-.AccederButton{
+.AccederButton {
   position: absolute;
   width: 100% !important;
   height: 50%;
   margin: auto;
-  
+
   bottom: 0%;
   text-transform: inherit !important;
 }
 
-.logo-login{
+.logo-login {
   margin: auto;
   margin-top: 15px;
+}
 
+@keyframes show-login {
+  from {
+    height: 0;
+  }
+  to {
+    height: 350px;
+  }
+}
+
+@keyframes show-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
