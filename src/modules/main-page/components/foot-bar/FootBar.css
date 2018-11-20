@@ -1,6 +1,6 @@
 .button {
   position: absolute;
-  bottom: 4.5%;
+  bottom: 2px;
   margin: auto;
   left: 0;
   right: 0;
@@ -26,7 +26,7 @@
 .hr {
   position: absolute;
   left: 2%;
-  bottom: 6%;
+  bottom: 10px;
   height: 2px;
   width: 95%;
   background-color: white;
@@ -47,13 +47,20 @@
   animation-fill-mode: forwards;
 }
 
+.component-foot-bar {
+  position: relative;
+  bottom: -10px;
+
+  width: 100%;
+}
+
 @media only screen and (max-width: 1366px) {
   .button {
-    bottom: 1.5%;
+    bottom: -6px;
   }
 
   .hr {
-    bottom: 3%;
+    bottom: 0px;
   }
 }
 
