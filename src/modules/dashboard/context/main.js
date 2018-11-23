@@ -20,18 +20,13 @@ export class MainContextComponent extends Component {
       const ContextComponent = contexts[i][2];
       const result = (
         <ContextComponent>
-          <Context.Consumer>
-            {value => {
-              data[name] = value;
-              return this.buildContexts(contexts, data, i + 1);
-            }}
-          </Context.Consumer>
+          {this.buildContexts(contexts, data, i + 1)}
         </ContextComponent>
       );
       return result;
     } else {
       const result = (
-        <MainContext.Provider value={data}>
+        <MainContext.Provider value={{ some: 'some' }}>
           {this.props.children()}
         </MainContext.Provider>
       );

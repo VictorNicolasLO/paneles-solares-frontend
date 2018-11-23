@@ -9,9 +9,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { MainContext } from '../../context/main';
+import { AuthContext } from '../../context/Auth.context';
 
 class LoginCard extends Component {
-  static contextType = MainContext;
+  static contextType = { AuthContext };
 
   constructor(props) {
     super(props);
@@ -35,6 +36,7 @@ class LoginCard extends Component {
   };
 
   render() {
+    console.log('some');
     let enableLoginButton = true;
     const name = this.state.name;
     const pass = this.state.pass;

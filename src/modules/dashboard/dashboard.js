@@ -7,6 +7,7 @@ import { MainContextComponent } from './context/main';
 
 export default class Dashboard extends Component {
   render() {
+    console.log('some2');
     return (
       <MainContextComponent>
         {() => (
