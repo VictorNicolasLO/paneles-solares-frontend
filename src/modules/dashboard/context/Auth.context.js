@@ -11,7 +11,7 @@ export class AuthContextComponent extends Component {
       this.setState({
         isAuth: true
       });
-    }, 3000);
+    }, 1000);
   };
 
   state = {

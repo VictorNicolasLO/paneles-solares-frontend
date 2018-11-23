@@ -10,10 +10,14 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { MainContext } from '../../context/main';
 import { AuthContext } from '../../context/Auth.context';
+import { withContext } from '../../../../utils/withContext';
+
+const contexts = {
+  authContext: AuthContext
+};
 
 class LoginCard extends Component {
-  static contextType = { AuthContext };
-
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -32,7 +36,7 @@ class LoginCard extends Component {
   };
 
   login = () => {
-    this.context.AuthContext.login(this.state.name, this.state.pass);
+    this.props.authContext.login(this.state.name, this.state.pass);
   };
 
   render() {
@@ -79,4 +83,4 @@ class LoginCard extends Component {
     );
   }
 }
-export default LoginCard;
+export default withContext(LoginCard, contexts);
