@@ -33,9 +33,9 @@ const createRender = (
 
 export const withContext = (Component, contexts) => {
   const contextNames = Object.keys(contexts);
-
+  const render = createRender(contexts, contextNames, Component);
   const WithContextComponent = props => {
-    return createRender(contexts, contextNames, Component);
+    return render;
   };
 
   return WithContextComponent;

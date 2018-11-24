@@ -14,7 +14,7 @@ export const combineContexts = contextList => {
 
     buildContexts(contexts, data = {}, i = 0) {
       if (contexts[i]) {
-        const ContextComponent = contexts[i][2];
+        const ContextComponent = contexts[i];
         const result = (
           <ContextComponent>
             {this.buildContexts(contexts, data, i + 1)}

@@ -1,6 +1,6 @@
 import { AuthContextComponent, AuthContext } from './Auth.context';
 import { combineContexts } from '../../../utils/combineContexts';
 
-const contextList = [['AuthContext', AuthContext, AuthContextComponent]];
+const contexts = [AuthContextComponent];
 
-export const MainContextComponent = combineContexts(contextList);
+export const MainContextComponent = combineContexts(contexts);
