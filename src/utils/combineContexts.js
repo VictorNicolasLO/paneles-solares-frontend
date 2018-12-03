@@ -4,12 +4,7 @@ export const combineContexts = contextList => {
   class MainContextComponent extends Component {
     constructor(props) {
       super(props);
-    }
-
-    componentDidMount() {
-      setTimeout(() => {
-        this.forceUpdate();
-      }, 3000);
+      this.mergedContexts = this.buildContexts(contextList);
     }
 
     buildContexts(contexts, data = {}, i = 0) {
@@ -28,7 +23,7 @@ export const combineContexts = contextList => {
     }
 
     render() {
-      return this.buildContexts(contextList);
+      return this.mergedContexts;
     }
   }
   return MainContextComponent;

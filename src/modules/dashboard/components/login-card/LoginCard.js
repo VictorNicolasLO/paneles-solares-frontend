@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import './LoginCard.css';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { MainContext } from '../../context/main';
 import { AuthContext } from '../../context/Auth.context';
 import { withContext } from '../../../../utils/withContext';
 

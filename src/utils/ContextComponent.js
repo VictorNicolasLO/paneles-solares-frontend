@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
-class ContextComponent extends Component {
-  static Context = React.createContext({});
+export class ContextComponent extends Component {
+  Context = undefined;
 
   constructor(props) {
     super(props);
   }
   render() {
-    <Context.Provider value={this.state}>
-      {this.props.children}
-    </Context.Provider>;
+    if (!this.Context) {
+      return '';
+    }
+    return (
+      <this.Context.Provider value={this.state}>
+        {this.props.children}
+      </this.Context.Provider>
+    );
   }
 }

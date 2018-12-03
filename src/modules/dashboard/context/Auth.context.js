@@ -1,11 +1,14 @@
 import React, { Component, Children } from 'react';
+import { ContextComponent } from '../../../utils/ContextComponent';
 
 export const AuthContext = React.createContext({
   isAuth: false,
   login: (user, password) => {}
 });
 
-export class AuthContextComponent extends Component {
+export class AuthContextComponent extends ContextComponent {
+  Context = AuthContext;
+
   login = (user, password) => {
     setTimeout(() => {
       this.setState({
@@ -18,12 +21,4 @@ export class AuthContextComponent extends Component {
     isAuth: false,
     login: this.login
   };
-
-  render() {
-    return (
-      <AuthContext.Provider value={this.state}>
-        {this.props.children}
-      </AuthContext.Provider>
-    );
-  }
 }
