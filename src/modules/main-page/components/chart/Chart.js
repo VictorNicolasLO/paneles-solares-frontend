@@ -31,6 +31,7 @@ export default class Chart extends Component {
             ]
           }}
           options={{
+            responsiveAnimationDuration: 1000,
             responsive: true,
             legend: {
               labels: {
