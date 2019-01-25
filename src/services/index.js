@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import { Configuration } from '../../config';
+import { login } from './auth';
+import { Configuration } from '../config';
 
 export let authorization = undefined;
 
@@ -12,3 +13,7 @@ export const http = Axios.create({
     }
   ]
 });
+
+export const api = {
+  auth: { login }
+};

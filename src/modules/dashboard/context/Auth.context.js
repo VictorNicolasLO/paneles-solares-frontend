@@ -1,5 +1,6 @@
 import React, { Component, Children } from 'react';
 import { ContextComponent } from '../../../utils/ContextComponent';
+import { api } from '../../../services';
 
 export const AuthContext = React.createContext({
   isAuth: false,
@@ -10,11 +11,22 @@ export class AuthContextComponent extends ContextComponent {
   Context = AuthContext;
 
   login = (user, password) => {
-    setTimeout(() => {
-      this.setState({
-        isAuth: true
+    api.auth
+      .login(user, password)
+      .then(res => {
+        this.setState({
+          isAuth: true
+        });
+      })
+      .catch(err => {
+        this.setState({
+          isAuth: false
+        });
       });
-    }, 1000);
+
+    /*this.setState({
+      isAuth: true
+    });*/
   };
 
   state = {
