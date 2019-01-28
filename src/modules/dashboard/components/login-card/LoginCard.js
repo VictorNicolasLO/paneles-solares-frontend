@@ -5,8 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { AuthContext } from '../../context/Auth.context';
-import { withContext } from '../../../../utils/withContext';
+import AuthContext from '../../context/Auth.context';
+import { injectContext } from '../../../../utils/injectContext';
 
 const contexts = {
   authContext: AuthContext
@@ -79,4 +79,5 @@ class LoginCard extends Component {
     );
   }
 }
-export default withContext(LoginCard, contexts);
+
+export default injectContext(LoginCard, contexts);

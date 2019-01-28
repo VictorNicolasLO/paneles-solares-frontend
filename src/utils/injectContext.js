@@ -10,7 +10,7 @@ const createRender = (
 ) => {
   if (contextNames[i]) {
     const name = contextNames[i];
-    const ContextConsumer = contexts[name].Consumer;
+    const ContextConsumer = contexts[name].context.Consumer;
     return (
       <ContextConsumer>
         {value => {
@@ -31,7 +31,7 @@ const createRender = (
   }
 };
 
-export const withContext = (Component, contexts) => {
+export const injectContext = (Component, contexts) => {
   const contextNames = Object.keys(contexts);
   const render = createRender(contexts, contextNames, Component);
   const WithContextComponent = props => {

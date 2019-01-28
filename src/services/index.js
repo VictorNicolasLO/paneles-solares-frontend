@@ -5,7 +5,7 @@ import { Configuration } from '../config';
 export let authorization = undefined;
 
 export const http = Axios.create({
-  baseURL: Configuration.API_URL,
+  baseURL: process.env.api,
   transformRequest: [
     (data, headers) => {
       headers.Authorization = authorization;

@@ -9,7 +9,7 @@ export const combineContexts = contextList => {
 
     buildContexts(contexts, data = {}, i = 0) {
       if (contexts[i]) {
-        const ContextComponent = contexts[i];
+        const ContextComponent = contexts[i].CtxComponent;
         const result = (
           <ContextComponent>
             {this.buildContexts(contexts, data, i + 1)}

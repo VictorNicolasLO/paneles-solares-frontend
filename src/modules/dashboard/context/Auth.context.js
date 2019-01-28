@@ -1,16 +1,15 @@
 import React, { Component, Children } from 'react';
 import { ContextComponent } from '../../../utils/ContextComponent';
 import { api } from '../../../services';
+import { createContext } from '../../../utils/createContext';
 
-export const AuthContext = React.createContext({
-  isAuth: false,
-  login: (user, password) => {}
-});
-
-export class AuthContextComponent extends ContextComponent {
-  Context = AuthContext;
+class AuthContextComponent extends ContextComponent {
+  state = {
+    isAuth: false
+  };
 
   login = (user, password) => {
+    console.log('Super login');
     api.auth
       .login(user, password)
       .then(res => {
@@ -23,14 +22,7 @@ export class AuthContextComponent extends ContextComponent {
           isAuth: false
         });
       });
-
-    /*this.setState({
-      isAuth: true
-    });*/
-  };
-
-  state = {
-    isAuth: false,
-    login: this.login
   };
 }
+
+export default createContext(AuthContextComponent);

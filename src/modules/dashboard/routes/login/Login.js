@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './Login.css';
 import LoginCard from '../../components/login-card/LoginCard';
-import { withContext } from '../../../../utils/withContext';
-import { AuthContext } from '../../context/Auth.context';
+import { injectContext } from '../../../../utils/injectContext';
+import AuthContext from '../../context/Auth.context';
 import { Redirect } from 'react-router-dom';
+import { ComponentTest } from '../../components/componentTest';
+import { importContext } from '../../../../utils/importContext';
 
 class Login extends Component {
   render() {
@@ -20,6 +22,6 @@ class Login extends Component {
   }
 }
 
-export default withContext(Login, {
+export default injectContext(Login, {
   authContext: AuthContext
 });
