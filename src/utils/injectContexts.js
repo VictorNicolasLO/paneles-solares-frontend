@@ -31,12 +31,23 @@ const createRender = (
   }
 };
 
-export const injectContext = (Component, contexts) => {
+export const injectContexts = (Component, contexts) => {
   const contextNames = Object.keys(contexts);
-  const render = createRender(contexts, contextNames, Component);
-  const WithContextComponent = props => {
-    return render;
-  };
+
+  class WithContextComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.renderCreated = createRender(
+        contexts,
+        contextNames,
+        Component,
+        props
+      );
+    }
+    render() {
+      return this.renderCreated;
+    }
+  }
 
   return WithContextComponent;
 };

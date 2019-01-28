@@ -6,14 +6,15 @@ import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import AuthContext from '../../context/Auth.context';
-import { injectContext } from '../../../../utils/injectContext';
+import { injectContexts } from '../../../../utils/injectContexts';
+import TestContext from '../componentTest/test-context.ctx';
 
 const contexts = {
-  authContext: AuthContext
+  authContext: AuthContext,
+  testContext: TestContext
 };
 
 class LoginCard extends Component {
-  static contextType = AuthContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +33,7 @@ class LoginCard extends Component {
   };
 
   login = () => {
+    console.log(this.props.testContext);
     this.props.authContext.login(this.state.name, this.state.pass);
   };
 
@@ -80,4 +82,4 @@ class LoginCard extends Component {
   }
 }
 
-export default injectContext(LoginCard, contexts);
+export default injectContexts(LoginCard, contexts);

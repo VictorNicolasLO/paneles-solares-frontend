@@ -10,7 +10,7 @@ class AuthContextComponent extends ContextComponent {
 
   login = (user, password) => {
     console.log('Super login');
-    api.auth
+    /*api.auth
       .login(user, password)
       .then(res => {
         this.setState({
@@ -21,7 +21,8 @@ class AuthContextComponent extends ContextComponent {
         this.setState({
           isAuth: false
         });
-      });
+      });*/
+    this.setState({ isAuth: !this.state.isAuth });
   };
 }
 

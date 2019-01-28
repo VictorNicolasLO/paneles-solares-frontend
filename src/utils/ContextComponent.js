@@ -4,6 +4,7 @@ export class ContextComponent extends Component {
   Context = undefined;
 
   constructor(props) {
+    console.log('contectComponent initialized');
     super(props);
   }
   render() {

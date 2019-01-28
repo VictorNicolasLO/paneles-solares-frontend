@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Main.css';
 import AuthContext from '../../context/Auth.context';
 import { Redirect } from 'react-router-dom';
-import { injectContext } from '../../../../utils/injectContext';
+import { injectContexts } from '../../../../utils/injectContexts';
 
 const contexts = {
   authContext: AuthContext
@@ -17,4 +17,4 @@ class Main extends Component {
   }
 }
 
-export default injectContext(Main, contexts);
+export default injectContexts(Main, contexts);

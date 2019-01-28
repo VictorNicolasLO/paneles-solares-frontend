@@ -5,7 +5,7 @@ import Login from './routes/login/Login';
 import LoginCard from './components/login-card/LoginCard';
 import Main from './routes/main/Main';
 import AuthContext from './context/Auth.context';
-import { importContext } from '../../utils/importContext';
+import { importContexts } from '../../utils/importContexts';
 
 class Dashboard extends Component {
   render() {
@@ -19,4 +19,4 @@ class Dashboard extends Component {
     );
   }
 }
-export default importContext(Dashboard, [AuthContext]);
+export default importContexts(Dashboard, [AuthContext]);

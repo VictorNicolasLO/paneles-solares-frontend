@@ -1,8 +1,7 @@
 import React from 'react';
 
 export function createContext(ContextComponent) {
-  const context = React.createContext({});
-
+  let context = React.createContext({});
   class NewCtx extends ContextComponent {
     constructor(props) {
       super(props);

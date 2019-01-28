@@ -1,8 +1,8 @@
 import { combineContexts } from './combineContexts';
 import React from 'react';
-export const importContext = (Component, contexts) => {
+export const importContexts = (Component, contexts) => {
+  const MainContextComponent = combineContexts(contexts);
   const ComponentWithContexts = props => {
-    const MainContextComponent = combineContexts(contexts);
     return (
       <MainContextComponent>
         <Component {...props} />
