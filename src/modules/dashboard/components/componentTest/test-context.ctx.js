@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ContextComponent } from '../../../../utils/ContextComponent';
 import { createContext } from '../../../../utils/createContext';
+import { ContextStore } from '../../../../utils/ContextStore';
 
 export class TestContext extends ContextComponent {
   state = {
@@ -13,4 +14,4 @@ export class TestContext extends ContextComponent {
   };
 }
 
-export default createContext(TestContext);
+export default createContext(TestContext, { store: new ContextStore() });

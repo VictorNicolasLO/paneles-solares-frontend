@@ -13,7 +13,11 @@ class Main extends Component {
     if (!this.props.authContext.isAuth) {
       return <Redirect to="/dashboard/login" />;
     }
-    return <div className="component-main">Dashboard</div>;
+    return (
+      <div className="component-main" onClick={this.props.authContext.login}>
+        Dashboard
+      </div>
+    );
   }
 }
 

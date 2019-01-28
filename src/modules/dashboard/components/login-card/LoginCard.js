@@ -33,12 +33,10 @@ class LoginCard extends Component {
   };
 
   login = () => {
-    console.log(this.props.testContext);
     this.props.authContext.login(this.state.name, this.state.pass);
   };
 
   render() {
-    console.log('some');
     let enableLoginButton = true;
     const name = this.state.name;
     const pass = this.state.pass;

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 export class ContextComponent extends Component {
   Context = undefined;
-
+  store = undefined;
   constructor(props) {
-    console.log('contectComponent initialized');
     super(props);
+    console.log('contectComponent initialized');
   }
+
   render() {
     if (!this.Context) {
       return '';

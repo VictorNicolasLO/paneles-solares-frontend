@@ -6,9 +6,7 @@ import TestContext from './test-context.ctx';
 
 export class ComponentTest extends Component {
   render() {
-    console.log('asdf');
-    const { testContext, authContext, tt } = this.props;
-    console.log(authContext.isAuth);
+    const { testContext, authContext, tt, contextKey } = this.props;
     return (
       <div
         onClick={() => {

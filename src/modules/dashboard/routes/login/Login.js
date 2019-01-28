@@ -7,18 +7,18 @@ import { Redirect } from 'react-router-dom';
 import ComponentTest from '../../components/componentTest/component-test';
 class Login extends Component {
   render() {
-    /*if (this.props.authContext.isAuth) {
+    if (this.props.authContext.isAuth) {
       return <Redirect to="/dashboard" />;
-    }*/
+    }
 
     return (
       <div className="component-Login">
         <div className="SecundaryColorLogin" />
         <LoginCard />
         <div style={{ position: 'absolute', background: 'red' }}>
-          <ComponentTest key={1} tt={123} />
-          <ComponentTest key={2} tt={124} />
-          <ComponentTest key={3} tt={125} />
+          <ComponentTest contextKey={1} key={1} tt={1234} />
+          <ComponentTest contextKey={2} key={2} tt={1243} />
+          <ComponentTest contextKey={3} key={3} tt={1252} />
         </div>
       </div>
     );
