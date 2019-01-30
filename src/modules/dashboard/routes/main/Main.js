@@ -4,6 +4,7 @@ import AuthContext from '../../ctx/Auth.context';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { injectContexts } from 'rctx';
 import Home from './routes/home/home';
+import Layout from './components/layout';
 
 const contexts = {
   authContext: AuthContext
@@ -15,11 +16,11 @@ class Main extends Component {
       return <Redirect to="/dashboard/login" />;
     }
     return (
-      <div className="component-main">
+      <Layout>
         <Switch>
           <Route path="/dashboard" component={Home} />
         </Switch>
-      </div>
+      </Layout>
     );
   }
 }

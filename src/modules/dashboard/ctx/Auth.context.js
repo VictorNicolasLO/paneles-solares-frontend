@@ -4,7 +4,9 @@ import { api } from '../../../services';
 
 class AuthContextComponent extends ContextComponent {
   state = {
-    isAuth: false
+    isAuth: true,
+    name: 'Victor Nicolas',
+    email: 'victornicolaslo@hotmail.com'
   };
 
   login = (user, password) => {
