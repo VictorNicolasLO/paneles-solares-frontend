@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Main.css';
-import AuthContext from '../../context/Auth.context';
-import { Redirect } from 'react-router-dom';
-import { injectContexts } from '../../../../utils/injectContexts';
+import AuthContext from '../../ctx/Auth.context';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { injectContexts } from 'rctx';
+import Home from './routes/home/home';
 
 const contexts = {
   authContext: AuthContext
@@ -14,8 +15,10 @@ class Main extends Component {
       return <Redirect to="/dashboard/login" />;
     }
     return (
-      <div className="component-main" onClick={this.props.authContext.login}>
-        Dashboard
+      <div className="component-main">
+        <Switch>
+          <Route path="/dashboard" component={Home} />
+        </Switch>
       </div>
     );
   }

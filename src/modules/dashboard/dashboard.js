@@ -4,8 +4,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Login from './routes/login/Login';
 import LoginCard from './components/login-card/LoginCard';
 import Main from './routes/main/Main';
-import AuthContext from './context/Auth.context';
-import { importContexts } from '../../utils/importContexts';
+import AuthContext from './ctx/Auth.context';
+import { importContexts } from 'rctx';
 
 class Dashboard extends Component {
   render() {

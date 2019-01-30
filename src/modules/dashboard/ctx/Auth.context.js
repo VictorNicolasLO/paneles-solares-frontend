@@ -1,8 +1,6 @@
 import React, { Component, Children } from 'react';
-import { ContextComponent } from '../../../utils/ContextComponent';
+import { ContextComponent, createContext, ContextStore } from 'rctx';
 import { api } from '../../../services';
-import { createContext } from '../../../utils/createContext';
-import { ContextStore } from '../../../utils/ContextStore';
 
 class AuthContextComponent extends ContextComponent {
   state = {
