@@ -1,6 +1,7 @@
 .button {
-  position: absolute;
-  bottom: 2px;
+  margin: auto;
+  position: relative;
+  bottom: 35px;
   margin: auto;
   left: 0;
   right: 0;
@@ -24,16 +25,29 @@
 }
 
 .hr {
-  position: absolute;
-  left: 2%;
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: relative;
+  left: 0;
   bottom: 10px;
   height: 2px;
-  width: 95%;
+  width: 100%;
   background-color: white;
   opacity: 0;
   animation: show-foot-bar 0.3s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
+}
+
+.foot-bar-container {
+  width: 95%;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
 .h1 {
@@ -48,7 +62,6 @@
 }
 
 .component-foot-bar {
-  position: relative;
   bottom: -10px;
 
   width: 100%;
@@ -56,11 +69,11 @@
 
 @media only screen and (max-width: 1366px) {
   .button {
-    bottom: -6px;
+    bottom: 18px;
   }
 
   .hr {
-    bottom: 0px;
+    bottom: -10px;
   }
 }
 

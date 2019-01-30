@@ -6,7 +6,7 @@ class FootBar extends Component {
   render() {
     return (
       <div className="component-foot-bar">
-        <div>
+        <div className="foot-bar-container">
           <hr className="hr" />
           <div className="button" onClick={this.props.onShowInfo}>
             <h1 className="h1">i</h1>
