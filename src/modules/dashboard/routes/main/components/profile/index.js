@@ -17,11 +17,11 @@ class Profile extends Component {
         justify="center"
         alignItems="center"
       >
-        <ProfileSection>
-          <img style={imageStyle} src="tec-logo.png" width="100" />
+        <ProfileSection animationRetard={0.3}>
+          <img style={imageStyle} src="/tec-logo.png" width="100" />
         </ProfileSection>
-        <ProfileSection>{name}</ProfileSection>
-        <ProfileSection>
+        <ProfileSection animationRetard={0.1}>{name}</ProfileSection>
+        <ProfileSection animationRetard={0}>
           <Typography
             variant="overline"
             style={{ color: 'white' }}

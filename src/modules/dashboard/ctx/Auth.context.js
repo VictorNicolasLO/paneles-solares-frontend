@@ -24,6 +24,10 @@ class AuthContextComponent extends ContextComponent {
       });*/
     this.setState({ isAuth: !this.state.isAuth });
   };
+
+  logout = () => {
+    this.setState({ isAuth: false });
+  };
 }
 
 export default createContext(AuthContextComponent, {
