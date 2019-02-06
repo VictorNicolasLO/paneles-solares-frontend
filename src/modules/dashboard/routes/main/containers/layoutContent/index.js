@@ -9,9 +9,8 @@ export class LayoutContent extends Component {
   render() {
     return (
       <Container container>
-        <Grid item xs={3}>
-          <Sidebar />
-        </Grid>
+        <Sidebar />
+
         <ContentPaperContiner item xs={9}>
           <TitleContain />
           <ContentPaper>{this.props.children}</ContentPaper>

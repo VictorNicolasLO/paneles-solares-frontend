@@ -1,9 +1,8 @@
 import HomeIcon from '@material-ui/icons/Home';
 import ControlCameraIcon from '@material-ui/icons/ControlCamera';
-import Home from './routes/home/home';
-import AjustePanel from './routes/ajuste-panel';
+import UsersIcon from '@material-ui/icons/People';
 
-export const routes = [
+export const menu = [
   {
     name: 'General',
     isDivider: true
@@ -11,13 +10,20 @@ export const routes = [
   {
     name: 'Principal',
     path: '/dashboard',
-    Icon: HomeIcon,
-    Component: Home
+    Icon: HomeIcon
   },
   {
     name: 'Ajuste de panel solar',
     path: '/dashboard/panel-solar',
-    Icon: ControlCameraIcon,
-    Component: AjustePanel
+    Icon: ControlCameraIcon
+  },
+  {
+    name: 'Usuarios',
+    isDivider: true
+  },
+  {
+    name: 'Gestion de usuarios',
+    path: '/dashboard/users',
+    Icon: UsersIcon
   }
 ];

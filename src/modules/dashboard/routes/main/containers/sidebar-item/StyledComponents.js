@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 export const ItemContainer = styled(Grid)`
   padding: 10px 0;
+  min-height: 44px !important;
   cursor: pointer;
   padding-left: 45px;
   width: 100%;
@@ -41,9 +42,9 @@ export const ItemContainer = styled(Grid)`
 `;
 
 export const DividerItemContainer = styled.div`
+  padding: 10px;
   padding-left: 50px;
   color: rgb(191, 191, 191);
   font-weight: 600;
   font-size: 1em;
-  margin-bottom: 5px;
 `;

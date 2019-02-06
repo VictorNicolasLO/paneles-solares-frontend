@@ -13,7 +13,7 @@ class Login extends Component {
     return (
       <div className="component-Login">
         <div className="SecundaryColorLogin" />
-        <LoginCard />
+        <LoginCard login={this.props.authContext.login} />
         <div style={{ position: 'absolute', background: 'red' }} />
       </div>
     );

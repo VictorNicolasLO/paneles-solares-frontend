@@ -1,7 +1,7 @@
-import { routes } from '../const';
+import { menu } from '../consts';
 
 export function getRouteFromLocation(path) {
-  return routes.find(item => {
+  return menu.find(item => {
     if (item.path == path) {
       return item;
     }

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import './Main.css';
 import AuthContext from '../../ctx/Auth.context';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { injectContexts, importContexts } from 'rctx';
 import Home from './routes/home/home';
 import LayoutCtx from './ctx/Layout.ctx';
-import Layout from './components/layout';
+import Layout from './containers/layout';
 import AjustePanel from './routes/ajuste-panel';
-import { routes } from './const';
-
+import { router } from './router';
 const contexts = {
   authContext: AuthContext
 };
@@ -21,8 +19,7 @@ class Main extends Component {
     return (
       <Layout>
         <Switch>
-          {routes.map(route => {
-            if (route.isDivider) return '';
+          {router.map(route => {
             return (
               <Route
                 exact={true}
