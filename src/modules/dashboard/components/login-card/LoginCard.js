@@ -11,7 +11,7 @@ class LoginCard extends Component {
     super(props);
     this.state = {
       enableLoginButton: false,
-      name: '',
+      name: 'asda',
       pass: ''
     };
   }
