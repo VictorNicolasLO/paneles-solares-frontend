@@ -2,7 +2,7 @@ import React, { Component, Children } from 'react';
 import { ContextComponent, createContext, ContextStore } from 'rctx';
 import { api } from '../../../services';
 
-class AuthContextComponent extends ContextComponent {
+export class AuthContextComponent extends ContextComponent {
   state = {
     isAuth: true,
     name: 'Victor Nicolas',

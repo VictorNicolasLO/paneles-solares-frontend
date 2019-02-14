@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import './Login.css';
 import LoginCard from '../../components/login-card/LoginCard';
 import { injectContexts } from 'rctx';
-import AuthContext from '../../ctx/Auth.context';
+import AuthContext, { AuthContextComponent } from '../../ctx/Auth.context';
 import { Redirect } from 'react-router-dom';
-class Login extends Component {
+
+type Props = {
+  authContext: AuthContextComponent
+};
+
+class Login extends Component<Props> {
   render() {
+    const authContext = this.props.authContext;
+
     if (this.props.authContext.isAuth) {
       return <Redirect to="/dashboard" />;
     }
