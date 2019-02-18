@@ -3,6 +3,7 @@ import './Chart.css';
 import { Line } from 'react-chartjs-2';
 import Axios from 'axios';
 import { getChartData } from '../../../../services/auth';
+import moment from 'moment'
 
 
 export default class Chart extends Component {
@@ -12,6 +13,8 @@ export default class Chart extends Component {
   }
 
   async componentDidMount(){
+
+    console.log(moment().format("YYYY"))
     
     let i = 0 ;
     
@@ -23,16 +26,14 @@ export default class Chart extends Component {
     });
 
     const chartDataX2 = data.map((item)=>{
-      console.log(item.date);
-      return item.date;      
+    
+      console.log(moment(item.date).get('year'));
+      return moment((item.date)).get('year'); 
+       
     });
 
     this.setState({chartDAtaY:chartDAtaY2});
     this.setState({chartDataX:chartDataX2});
-
-
-    
-
      
   }
 
