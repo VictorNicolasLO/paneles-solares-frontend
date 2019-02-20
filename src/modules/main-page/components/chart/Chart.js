@@ -27,8 +27,11 @@ export default class Chart extends Component {
 
     const chartDataX2 = data.map((item)=>{
     
-      console.log(moment(item.date).get('year'));
-      return moment((item.date)).get('year'); 
+      console.log(moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year'));
+
+      return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year'); 
+
+      
        
     });
 
@@ -36,7 +39,6 @@ export default class Chart extends Component {
     this.setState({chartDataX:chartDataX2});
      
   }
-
 
   
 
