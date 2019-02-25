@@ -13,26 +13,17 @@ export default class Chart extends Component {
   }
 
   async componentDidMount(){
-
-    console.log(moment().format("YYYY"))
-    
-    let i = 0 ;
     
     const {data} = await getChartData();
 
     const chartDAtaY2 = data.map((item)=>{
-      console.log(item.value);
       return item.value;
     });
 
     const chartDataX2 = data.map((item)=>{
-    
-      console.log(moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year'));
 
       return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year')+
-      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds'); 
-
-      
+      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds');  
        
     });
 
