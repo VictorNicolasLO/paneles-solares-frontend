@@ -29,7 +29,8 @@ export default class Chart extends Component {
     
       console.log(moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year'));
 
-      return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year'); 
+      return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year')+
+      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds'); 
 
       
        
