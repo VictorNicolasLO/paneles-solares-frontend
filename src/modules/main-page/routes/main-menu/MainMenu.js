@@ -24,7 +24,7 @@ export default class MainMenu extends Component {
             alignItems="center"
           >
             <ItemMenu
-              url="/charts"
+              url="/estacion-meteorologica"
               name="Estacion meteorológica"
               Icon={Icon_1}
             />
@@ -38,7 +38,7 @@ export default class MainMenu extends Component {
             justify="center"
             alignItems="center"
           >
-            <ItemMenu name="Calentador solar" Icon={Icon_2} />
+            <ItemMenu name="Calentador solar" url="/charts" Icon={Icon_2} />
           </Grid>
           <Grid
             item

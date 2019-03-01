@@ -11,7 +11,7 @@ class ItemMenu extends Component {
   }
 
   go = () => {
-    this.props.history.push('/charts');
+    this.props.history.push(this.props.url);
   };
 
   render() {

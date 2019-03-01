@@ -2,56 +2,21 @@ import React, { Component } from 'react';
 import './Chart.css';
 import { Line } from 'react-chartjs-2';
 import Axios from 'axios';
-import { getChartData } from '../../../../services/auth';
-import moment from 'moment'
-
+import moment from 'moment';
 
 export default class Chart extends Component {
-  state ={
-    chartDataX : [],
-    chartDAtaY : []
-  }
-
-  async componentDidMount(){
-
-    console.log(moment().format("YYYY"))
-    
-    let i = 0 ;
-    
-    const {data} = await getChartData();
-
-    const chartDAtaY2 = data.map((item)=>{
-      console.log(item.value);
-      return item.value;
-    });
-
-    const chartDataX2 = data.map((item)=>{
-    
-      console.log(moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year'));
-
-      return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year')+
-      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds'); 
-
-      
-       
-    });
-
-    this.setState({chartDAtaY:chartDAtaY2});
-    this.setState({chartDataX:chartDataX2});
-     
-  }
-
-  
-
   render() {
+    const { chartDataX, chartDAtaY } = this.props;
+    debugger;
+    if (!chartDataX || !chartDAtaY) return null;
     return (
       <div className="chart-container">
         <Line
           data={{
-            labels: this.state.chartDataX,
+            labels: chartDataX,
             datasets: [
               {
-                data: this.state.chartDAtaY,
+                data: chartDAtaY,
                 label: 'Calentador solar',
                 borderColor: 'white',
                 fillColor: 'white',
