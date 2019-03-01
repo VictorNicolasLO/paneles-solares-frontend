@@ -1,11 +1,12 @@
 import Axios from 'axios';
 import { login } from './auth';
-import { Configuration } from '../config';
+
 
 export let authorization = undefined;
+console.log(process.env.REACT_API_URL);
 
 export const http = Axios.create({
-  baseURL: process.env.api,
+  baseURL: "http://178.128.151.68/api",
   transformRequest: [
     (data, headers) => {
       headers.Authorization = authorization;
