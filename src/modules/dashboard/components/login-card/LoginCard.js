@@ -5,19 +5,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import AuthContext from '../../ctx/Auth.context';
-import { injectContexts } from 'rctx';
-
-const contexts = {
-  authContext: AuthContext
-};
 
 class LoginCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       enableLoginButton: false,
-      name: '',
+      name: 'asda',
       pass: ''
     };
   }
@@ -31,7 +25,7 @@ class LoginCard extends Component {
   };
 
   login = () => {
-    this.props.authContext.login(this.state.name, this.state.pass);
+    this.props.login(this.state.name, this.state.pass);
   };
 
   render() {
@@ -78,4 +72,4 @@ class LoginCard extends Component {
   }
 }
 
-export default injectContexts(LoginCard, contexts);
+export default LoginCard;
