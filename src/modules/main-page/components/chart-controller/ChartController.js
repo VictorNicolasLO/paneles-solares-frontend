@@ -1,73 +1,49 @@
 import React, { Component } from 'react';
 import './ChartController.css';
 
-const exampleItem = [
-  <li className="item item-1">ANTERIOR</li>,
-  <li className="item item-2" >CENTRO</li>,
-  <li className="item item-3" >SIGUIENTE</li>   
-]
-
-var nitem 
+var nitem;
 
 export default class ChartController extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {nitem: 0}
+    this.state = { nitem: 0 };
   }
 
-  handleClickLeft = (e) =>{
-
+  handleClickLeft = e => {
     nitem = this.state.nitem;
 
-    if(nitem != 0){
+    if (nitem != 0) {
       this.setState({
-        nitem:this.state.nitem - 1
-      })
+        nitem: this.state.nitem - 1
+      });
     }
+  };
 
-  }
-
- 
-
-  handleClickRight = (e) =>{
-
+  handleClickRight = e => {
+    const { items } = this.props;
     nitem = this.state.nitem;
 
-    if(nitem != exampleItem.length - 1){
+    if (nitem != items.length - 1) {
       this.setState({
-        nitem:this.state.nitem + 1
-      })
+        nitem: this.state.nitem + 1
+      });
     }
-  
-  }
-  
-
+  };
 
   render() {
-    return <div className="component-chart-controller" >
+    const { items } = this.props;
 
+    return (
+      <div className="component-chart-controller">
+        <div className="wrap">
+          <button onClick={this.handleClickLeft}>&laquo;</button>
 
-              <h1>Flexbox Slider</h1>
-              
-              <div className="wrap">
-                <button onClick={this.handleClickLeft}>&laquo;</button>
-                
-                      <div className="scroller">
-
-                        <ul className="items">
-                            {exampleItem[this.state.nitem]} 
-         
-                        </ul>
-
-                      </div>
-                <button onClick={this.handleClickRight}>&raquo;</button>
-              </div>
-                  </div>;
+          <div className="scroller">
+            <div className="items">{items[this.state.nitem]}</div>
+          </div>
+          <button onClick={this.handleClickRight}>&raquo;</button>
+        </div>
+      </div>
+    );
   }
-
-
-
-  }
-
-
+}

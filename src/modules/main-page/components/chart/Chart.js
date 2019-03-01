@@ -6,18 +6,20 @@ import moment from 'moment';
 
 export default class Chart extends Component {
   render() {
-    const { chartDataX, chartDAtaY } = this.props;
-    debugger;
+    const { chartDataX, chartDAtaY, title } = this.props;
+    console.log(chartDAtaY);
+    console.log(chartDataX);
     if (!chartDataX || !chartDAtaY) return null;
     return (
       <div className="chart-container">
         <Line
+          redraw={true}
           data={{
             labels: chartDataX,
             datasets: [
               {
                 data: chartDAtaY,
-                label: 'Calentador solar',
+                label: title || 'Calentador solar',
                 borderColor: 'white',
                 fillColor: 'white',
                 fill: 'white'
