@@ -4,26 +4,39 @@ import Grid from '@material-ui/core/Grid';
 import TopBar from '../../components/top-bar/TopBar';
 
 import FootBar from '../../components/foot-bar/FootBar';
+
+const styleDelay = (n) => ({
+  animationDelay: n + 's'
+});
+
 export default class MainTemplate extends Component {
   render() {
     return (
       <div className="component-main-template">
-        <div className="logo">
+        <header>
           <div>
             <img
-              width="140"
-              src="./tec-logo.png"
-              alt="Logo del tecnologico de culiacan"
+              src="http://itculiacan.edu.mx/wp-content/themes/fuente-tnm/images/LogoTNM.png"
+              width={300}
+              alt=""
+              style={styleDelay(0)}
+            />
+            <img
+              src="http://itculiacan.edu.mx/wp-content/themes/fuente-tnm/images/LogoTecNM_Horizontal.svg"
+              width={300}
+              alt=""
+              style={styleDelay(0.1)}
+            />
+            <img
+              src="http://itculiacan.edu.mx/wp-content/plugins/website-logo/images/LOGO_TEC_PNG_OK.png"
+              width={130}
+              alt=""
+              style={styleDelay(0.2)}
             />
           </div>
-        </div>
-        <Grid container spacing={20}>
-          <Grid className="top-bar" item xs={12}>
-            <TopBar path="" />
-          </Grid>
-        </Grid>
+        </header>
+
         {this.props.children}
-        <FootBar />
       </div>
     );
   }
