@@ -20,9 +20,9 @@ export default class Chart extends Component {
               {
                 data: chartDAtaY,
                 label: title || 'Calentador solar',
-                borderColor: 'white',
-                fillColor: 'white',
-                fill: 'white'
+                borderColor: '#1b396a',
+                fillColor: '#1b396a',
+                fill: '#1b396a'
               }
             ]
           }}
@@ -31,7 +31,7 @@ export default class Chart extends Component {
             responsive: true,
             legend: {
               labels: {
-                fontColor: 'white'
+                fontColor: '#1b396a'
               }
             },
 
@@ -40,15 +40,15 @@ export default class Chart extends Component {
                 {
                   ticks: {
                     beginAtZero: true,
-                    fontColor: 'white'
+                    fontColor: '#1b396a'
                   },
                   display: true,
                   gridLines: {
                     display: true,
-                    color: 'rgba(255, 255, 255, 0.561)'
+                    color: '#1b396a71'
                   },
                   scaleLabel: {
-                    fontColor: 'white',
+                    fontColor: '#1b396a',
                     display: true,
                     labelString: 'Tiempo (h)'
                   }
@@ -58,15 +58,15 @@ export default class Chart extends Component {
                 {
                   ticks: {
                     beginAtZero: true,
-                    fontColor: 'white'
+                    fontColor: '#1b396a'
                   },
                   display: true,
                   gridLines: {
                     display: true,
-                    color: 'rgba(255, 255, 255, 0.561)'
+                    color: '#1b396a71'
                   },
                   scaleLabel: {
-                    fontColor: 'white',
+                    fontColor: '#1b396a',
                     display: true,
                     labelString: 'Potencia (W)'
                   }
