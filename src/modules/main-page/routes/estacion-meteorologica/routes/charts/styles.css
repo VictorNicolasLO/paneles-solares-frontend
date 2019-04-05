@@ -1,0 +1,49 @@
+.chart-name{
+    color: #07336c;
+    padding-bottom: 0px;
+    display: flex;
+    align-content: center;
+    justify-content: start;
+    padding-left:4.4%;
+    align-items: center;
+    margin-top: -20px
+}
+
+.chart-name > * {
+    color: #07336c;
+    padding: 0px 20px;
+}
+
+.icon-chart{
+    transform: scale(.7);
+    top : 20px;
+   
+}
+
+.icon-chart > *{
+    position: relative;
+    bottom: 0px;
+    position: relative;
+    margin-left: -30px;
+    left: 10px;
+}
+
+.button-flex{
+    justify-self: end;
+    margin-left: auto;
+    right: 14.3%;
+    position: relative;
+}
+
+.button-flex * {
+    opacity: 1;
+}
+.button-flex-not * {
+    opacity: 1;
+}
+.button-flex-not{
+    justify-self: end;
+    margin-left: auto;
+    right:-50px;
+    position: relative;
+}

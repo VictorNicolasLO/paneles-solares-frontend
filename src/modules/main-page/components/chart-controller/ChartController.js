@@ -45,7 +45,7 @@ export default class ChartController extends Component {
 
     if (nitem !== items.length - 1) {
       if (onChange)
-        onChange(this.state.nitem - 1)
+        onChange(this.state.nitem + 1)
       this.setState({
         nitem: this.state.nitem + 1,
       });

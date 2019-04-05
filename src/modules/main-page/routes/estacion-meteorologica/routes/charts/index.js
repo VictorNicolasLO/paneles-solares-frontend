@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Grid } from '@material-ui/core';
+import { Grid, LinearProgress, Button, Fab } from '@material-ui/core';
 import Chart from '../../../../components/chart/Chart';
 import moment from 'moment';
 import ChartController from '../../../../components/chart-controller/ChartController';
@@ -8,19 +8,23 @@ import { getWeatherStation } from '../../../../../../services/weather-station';
 import { selectedItems, dic } from './const';
 import { withRouter } from 'react-router'
 import { estacionItems } from '../../const';
+import './styles.css'
+import { CloudDownload, CalendarToday } from '@material-ui/icons'
 class Charts extends Component {
   state = {
     chartDAtaY: [],
     chartDataX: [],
     items: [],
+    loading: true,
+    selected: {},
+    chartNames: []
   };
 
   async componentDidMount() {
-    console.log(this.props)
     const { match: { params: { type } } } = this.props
     const selected = estacionItems[type]
 
-    console.log(moment().format('YYYY'));
+
 
     let i = 0;
 
@@ -29,13 +33,7 @@ class Charts extends Component {
     } = await getWeatherStation();
 
     const dates = data.map((item) => {
-      console.log(
-        moment(item.date).get('day') +
-        '/' +
-        moment(item.date).get('month') +
-        '/' +
-        moment(item.date).get('year'),
-      );
+
 
       return (
         moment(item.date).get('day') +
@@ -71,25 +69,61 @@ class Charts extends Component {
     });
 
     const items = [];
+    const chartNames = []
     for (let i in chartsData) {
       const chartData = chartsData[i];
-      if (i === selected.type)
+      if (i === selected.type) {
+        chartNames.unshift(i)
         items.unshift(
           <Chart title={dic[i]} chartDAtaY={chartData.y} chartDataX={chartData.x} />,
         );
-      else
+      }
+
+      else {
         items.push(
           <Chart title={dic[i]} chartDAtaY={chartData.y} chartDataX={chartData.x} />,
         );
+        chartNames.push(i)
+
+      }
+
     }
 
-    this.setState({ items });
+    this.setState({ items, loading: false, selected, chartNames });
+  }
+
+  handleChange = (i) => {
+    console.log(i)
+    console.log(this.state.chartNames)
+    console.log(estacionItems)
+    this.setState({ selected: estacionItems.find((item) => item.type === this.state.chartNames[i]) })
   }
 
   render() {
+
+    if (this.state.loading)
+      return <LinearProgress style={{ top: "-30px", position: "relative" }} />
+
+    const { selected } = this.state
+    const Icon = selected.icon;
     return (
       <div className="component-charts">
         <Grid container spacing={20}>
+          <Grid className="chart-name" container xs={12}>
+            <div className="icon-chart" ><Icon></Icon></div>
+            <h1 >{selected.name}</h1>
+
+            <div className="button-flex" style={{ paddingTop: "0px" }}>
+              <Fab variant="extended" style={{ background: "white", marginRight: "20px" }}   >
+                <CalendarToday style={{ marginRight: "10px" }} />
+                Seleccionar intervalo
+            </Fab>
+              <Fab variant="extended" color="primary"   >
+                <CloudDownload style={{ marginRight: "10px" }} />
+                Descargar
+            </Fab>
+            </div>
+          </Grid>
           <Grid
             item
             xs={12}
@@ -97,7 +131,7 @@ class Charts extends Component {
             direction="row"
             justify="center"
             alignItems="center">
-            <ChartController onChange={(i)=>{console.log(i)}} items={this.state.items} />
+            <ChartController onChange={this.handleChange} items={this.state.items} />
           </Grid>
         </Grid>
       </div>
