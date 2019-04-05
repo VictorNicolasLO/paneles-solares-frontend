@@ -9,7 +9,7 @@ import moment from 'moment';
 export default class Charts extends Component {
   state = {
     chartDAtaY: [],
-    chartDataX: []
+    chartDataX: [],
   };
 
   async componentDidMount() {
@@ -19,18 +19,18 @@ export default class Charts extends Component {
 
     const { data } = await getChartData();
 
-    const chartDAtaY2 = data.map(item => {
+    const chartDAtaY2 = data.map((item) => {
       console.log(item.value);
       return item.value;
     });
 
-    const chartDataX2 = data.map(item => {
+    const chartDataX2 = data.map((item) => {
       console.log(
         moment(item.date).get('day') +
           '/' +
           moment(item.date).get('month') +
           '/' +
-          moment(item.date).get('year')
+          moment(item.date).get('year'),
       );
 
       return (
@@ -61,8 +61,7 @@ export default class Charts extends Component {
             container
             direction="row"
             justify="center"
-            alignItems="center"
-          >
+            alignItems="center">
             <Chart
               chartDAtaY={this.state.chartDAtaY}
               chartDataX={this.state.chartDataX}

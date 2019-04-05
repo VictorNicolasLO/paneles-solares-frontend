@@ -11,6 +11,11 @@ import Link from 'react-router-dom/Link';
 
 export default class MainMenu extends Component {
   render() {
+    const configMenu = {
+      duration: '.3s',
+      delayContent: 0.3 + 's',
+      durationContent: '.5s',
+    };
     return (
       <div className="component-main-menu">
         <Grid container spacing={20}>
@@ -21,9 +26,9 @@ export default class MainMenu extends Component {
             container
             direction="row"
             justify="center"
-            alignItems="center"
-          >
+            alignItems="center">
             <ItemMenu
+              {...configMenu}
               url="/estacion-meteorologica"
               name="Estacion meteorológica"
               Icon={Icon_1}
@@ -36,9 +41,13 @@ export default class MainMenu extends Component {
             container
             direction="row"
             justify="center"
-            alignItems="center"
-          >
-            <ItemMenu name="Calentador solar" url="/charts" Icon={Icon_2} />
+            alignItems="center">
+            <ItemMenu
+              {...configMenu}
+              name="Calentador solar"
+              url="/charts"
+              Icon={Icon_2}
+            />
           </Grid>
           <Grid
             item
@@ -47,9 +56,8 @@ export default class MainMenu extends Component {
             container
             direction="row"
             justify="center"
-            alignItems="center"
-          >
-            <ItemMenu name="Secador solar" Icon={Icon_3} />
+            alignItems="center">
+            <ItemMenu {...configMenu} name="Secador solar" Icon={Icon_3} />
           </Grid>
           <Grid
             item
@@ -58,9 +66,8 @@ export default class MainMenu extends Component {
             container
             direction="row"
             justify="center"
-            alignItems="center"
-          >
-            <ItemMenu name="Panel solar" Icon={Icon_4} />
+            alignItems="center">
+            <ItemMenu {...configMenu} name="Panel solar" Icon={Icon_4} />
           </Grid>
         </Grid>
       </div>

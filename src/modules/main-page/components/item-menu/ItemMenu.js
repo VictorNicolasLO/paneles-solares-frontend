@@ -6,7 +6,7 @@ class ItemMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false
+      redirect: false,
     };
   }
 
@@ -15,16 +15,32 @@ class ItemMenu extends Component {
   };
 
   render() {
-    const { name, Icon, url } = this.props;
+    const { name, Icon, url, onClick } = this.props;
     if (this.state.redirect) {
       return <Redirect to={url || ''} />;
     }
+
+    const styleContainer = {
+      animationDuration: this.props.duration || '.2s',
+      animationDelay: this.props.delay || 0,
+    };
+
+    const styleContent = {
+      animationDuration: this.props.durationContent || '.2s',
+      animationDelay: this.props.delayContent || 0,
+    };
+
     return (
-      <div className="item-menu" onClick={this.go}>
-        <div className="icon">
-          <Icon className="item-menu-icon" />
+      <div
+        style={styleContainer}
+        className="item-menu"
+        onClick={onClick || this.go}>
+        <div className="icon" style={styleContent}>
+          {Icon ? <Icon className="item-menu-icon" /> : ''}
         </div>
-        <div className="name">{name}</div>
+        <div className="name" style={styleContent}>
+          {name}
+        </div>
       </div>
     );
   }
