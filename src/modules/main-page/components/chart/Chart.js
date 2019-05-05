@@ -7,12 +7,15 @@ import moment from 'moment'
 
 
 export default class Chart extends Component {
+  
+  
+  
   state ={
-    chartDataX : [],
-    chartDAtaY : []
+    chartDataX : [1,2,3],
+    chartDAtaY : [10,20,30]
   }
 
-  async componentDidMount(){
+  /*async componentDidMount(){
     
     const {data} = await getChartData();
 
@@ -21,16 +24,14 @@ export default class Chart extends Component {
     });
 
     const chartDataX2 = data.map((item)=>{
-
       return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year')+
-      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds');  
-       
+      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds');     
     });
 
     this.setState({chartDAtaY:chartDAtaY2});
     this.setState({chartDataX:chartDataX2});
      
-  }
+  }*/
 
   
 
