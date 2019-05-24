@@ -7,5 +7,5 @@ export const ContentPaperContiner = styled(Grid)`
   position: relative;
   top: -180px;
   height: 100vh;
-  padding-right: 20px;
+  padding-right: 100px;
 `;
