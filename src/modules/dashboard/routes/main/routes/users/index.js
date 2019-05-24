@@ -4,6 +4,8 @@ import SectionInfo from '../../../../components/section-info';
 import { title, description,demoData,headers,options } from './consts';
 import DynamicTable from '../../../../components/dynamic-table';
 import TableMenu from '../../../../components/table-menu';
+import AcceptDialog from '../../../../components/accept-dialog';
+import AddButton from '../../../../components/add-button';
 
 
 
@@ -19,6 +21,14 @@ function Users() {
           return item
         })} headers = {headers} style={{ }}></DynamicTable>
       </Grid> 
+      <AcceptDialog
+        open={false}
+        title="Eliminar"
+        onCancel={()=>{}}
+        onAccept={() => {}}
+        content="¿Esta seguro que desea eliminar este usuario?"
+      />
+      <AddButton></AddButton>
     </>
   );
 }

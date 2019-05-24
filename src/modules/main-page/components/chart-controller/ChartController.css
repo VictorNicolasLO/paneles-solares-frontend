@@ -20,7 +20,7 @@ h1 {
   margin: auto;
 }
 
-button {
+/*button {
   width: 30px;
   border: none;
   background: transparent;
@@ -30,7 +30,7 @@ button {
   outline: none;
   opacity: 0.5;
   transition: opacity 300ms ease-out;
-}
+}*/
 
 .scroller {
   flex: 1;

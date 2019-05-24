@@ -8,6 +8,7 @@ import { importContexts, injectContexts } from 'rctx';
 import ParamsCtx from './ctx/Params.ctx';
 import AcceptDialog from '../../../../components/accept-dialog';
 import SectionInfo from '../../../../components/section-info';
+
 function AjustePanel({ paramsCtx: { openDialog, save, closeDialog } }) {
   return (
     <>
