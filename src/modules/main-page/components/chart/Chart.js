@@ -1,63 +1,36 @@
 import React, { Component } from 'react';
 import './Chart.css';
 import { Line } from 'react-chartjs-2';
-import Axios from 'axios';
-import { getChartData } from '../../../../services/auth';
-import moment from 'moment'
-
 
 export default class Chart extends Component {
-  
-  
-  
-  state ={
-    chartDataX : [1,2,3],
-    chartDAtaY : [10,20,30]
-  }
-
-  /*async componentDidMount(){
-    
-    const {data} = await getChartData();
-
-    const chartDAtaY2 = data.map((item)=>{
-      return item.value;
-    });
-
-    const chartDataX2 = data.map((item)=>{
-      return moment(item.date).get('day')+"/"+moment(item.date).get('month')+"/"+moment(item.date).get('year')+
-      "_At "+moment(item.date).get('hour')+":"+moment(item.date).get('minutes')+":"+moment(item.date).get('seconds');     
-    });
-
-    this.setState({chartDAtaY:chartDAtaY2});
-    this.setState({chartDataX:chartDataX2});
-     
-  }*/
-
-  
-
   render() {
+    const { chartDataX, chartDAtaY, title } = this.props;
+    console.log(chartDAtaY);
+    console.log(chartDataX);
+    if (!chartDataX || !chartDAtaY) return null;
     return (
       <div className="chart-container">
         <Line
+          redraw={true}
           data={{
-            labels: this.state.chartDataX,
+            labels: chartDataX,
             datasets: [
               {
-                data: this.state.chartDAtaY,
-                label: 'Calentador solar',
-                borderColor: 'white',
-                fillColor: 'white',
-                fill: 'white'
-              }
-            ]
+                data: chartDAtaY,
+                label: title || 'Calentador solar',
+                borderColor: '#1b396a',
+                fillColor: '#1b396a',
+                fill: '#1b396a',
+              },
+            ],
           }}
           options={{
             responsiveAnimationDuration: 1000,
             responsive: true,
             legend: {
               labels: {
-                fontColor: 'white'
-              }
+                fontColor: '#1b396a',
+              },
             },
 
             scales: {
@@ -65,39 +38,39 @@ export default class Chart extends Component {
                 {
                   ticks: {
                     beginAtZero: true,
-                    fontColor: 'white'
+                    fontColor: '#1b396a',
                   },
                   display: true,
                   gridLines: {
                     display: true,
-                    color: 'rgba(255, 255, 255, 0.561)'
+                    color: '#1b396a71',
                   },
                   scaleLabel: {
-                    fontColor: 'white',
+                    fontColor: '#1b396a',
                     display: true,
-                    labelString: 'Tiempo (h)'
-                  }
-                }
+                    labelString: 'Tiempo (h)',
+                  },
+                },
               ],
               yAxes: [
                 {
                   ticks: {
                     beginAtZero: true,
-                    fontColor: 'white'
+                    fontColor: '#1b396a',
                   },
                   display: true,
                   gridLines: {
                     display: true,
-                    color: 'rgba(255, 255, 255, 0.561)'
+                    color: '#1b396a71',
                   },
                   scaleLabel: {
-                    fontColor: 'white',
+                    fontColor: '#1b396a',
                     display: true,
-                    labelString: 'Potencia (W)'
-                  }
-                }
-              ]
-            }
+                    labelString: 'Potencia (W)',
+                  },
+                },
+              ],
+            },
           }}
         />
       </div>

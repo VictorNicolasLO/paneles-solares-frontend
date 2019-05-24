@@ -2,9 +2,11 @@ import React, { Component, Children } from 'react';
 import { ContextComponent, createContext, ContextStore } from 'rctx';
 import { api } from '../../../services';
 
-class AuthContextComponent extends ContextComponent {
+export class AuthContextComponent extends ContextComponent {
   state = {
-    isAuth: false
+    isAuth: true,
+    name: 'Victor Nicolas',
+    email: 'victornicolaslo@hotmail.com'
   };
 
   login = (user, password) => {
@@ -21,6 +23,10 @@ class AuthContextComponent extends ContextComponent {
         });
       });*/
     this.setState({ isAuth: !this.state.isAuth });
+  };
+
+  logout = () => {
+    this.setState({ isAuth: false });
   };
 }
 
