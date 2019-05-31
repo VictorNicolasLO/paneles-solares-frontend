@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Grid } from '@material-ui/core';
 import SectionInfo from '../../../../components/section-info';
 import { title, description,demoData,headers,options } from './consts';
@@ -10,6 +10,7 @@ import AddButton from '../../../../components/add-button';
 
 
 function Users() {
+  const [openDialog,setOpenDialog]= useState(false);
   return (
     <>
       <Grid container>
@@ -17,15 +18,15 @@ function Users() {
       </Grid>
       <Grid>
         <DynamicTable data = {demoData.map((item)=>{
-          item.menu = <TableMenu option={options}></TableMenu>
+          item.menu = <TableMenu option={options} onClickItem={(option)=>{ setOpenDialog(true)}}></TableMenu>
           return item
         })} headers = {headers} style={{ }}></DynamicTable>
       </Grid> 
       <AcceptDialog
-        open={false}
+        open={openDialog}
         title="Eliminar"
-        onCancel={()=>{}}
-        onAccept={() => {}}
+        onCancel={()=>{setOpenDialog(false)}}
+        onAccept={() =>{setOpenDialog(false)}}
         content="¿Esta seguro que desea eliminar este usuario?"
       />
       <AddButton></AddButton>

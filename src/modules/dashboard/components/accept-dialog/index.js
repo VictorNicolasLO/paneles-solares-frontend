@@ -7,6 +7,7 @@ import {
   DialogActions
 } from '@material-ui/core';
 console.log('wom');
+
 function AcceptDialog(props) {
   return (
     <Dialog

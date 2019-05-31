@@ -3,10 +3,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AcceptDialog from '../../components/accept-dialog';
 
 const ITEM_HEIGHT = 48;
 
-function TableMenu({option}) {
+function TableMenu({option,onClickItem}) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -43,7 +44,10 @@ function TableMenu({option}) {
         }}
       >
         {options.map(option => (
-          <MenuItem  onClick={handleClose}>
+          <MenuItem  onClick={(event)=>{
+            handleClose(event);
+            onClickItem(option);
+          }}>
             {option}
           </MenuItem>
         ))}
