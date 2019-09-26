@@ -5,7 +5,7 @@ import { getRouteFromLocation } from './Layout.helper';
 
 class LayoutContext extends ContextComponent {
   state = {
-    route: {}
+    route: {},
   };
 
   componentDidMount() {
@@ -13,18 +13,18 @@ class LayoutContext extends ContextComponent {
     console.log(history);
     console.log(getRouteFromLocation(history.location.pathname));
     this.setState({
-      route: getRouteFromLocation(history.location.pathname)
+      route: getRouteFromLocation(history.location.pathname),
     });
-    history.listen(location => {
+    history.listen((location) => {
       this.setState({
-        route: getRouteFromLocation(location.pathname)
+        route: getRouteFromLocation(location.pathname),
       });
     });
   }
 }
 
 const context = createContext(LayoutContext, {
-  store: new ContextStore()
+  store: new ContextStore(),
 });
 
 context.CtxComponent = withRouter(context.CtxComponent);

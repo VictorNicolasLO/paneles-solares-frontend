@@ -1,53 +1,59 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
-import { Grid, LinearProgress, Button, Fab } from '@material-ui/core';
+import {
+  Grid,
+  LinearProgress,
+  Fab,
+  CircularProgress,
+  Typography,
+} from '@material-ui/core';
 import Chart from '../../../../components/chart/Chart';
 import moment from 'moment';
 import ChartController from '../../../../components/chart-controller/ChartController';
-import { getWeatherStation } from '../../../../../../services/weather-station';
+import {
+  getWeatherStation,
+  getByDateRange,
+} from '../../../../../../services/weather-station';
 import { selectedItems, dic } from './const';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 import { estacionItems } from '../../const';
-import './styles.css'
-import { CloudDownload, CalendarToday } from '@material-ui/icons'
+import './styles.css';
+import { CloudDownload, CalendarToday } from '@material-ui/icons';
+import DateSelectDialog from './containers/date-select-dialog';
+import LayersClearIcon from '@material-ui/icons/LayersClear';
+import { downloadCsv as downloadCsvHelper } from './helper';
 class Charts extends Component {
   state = {
+    data: [],
     chartDAtaY: [],
     chartDataX: [],
     items: [],
     loading: true,
     selected: {},
-    chartNames: []
+    nameSelected: '',
+    chartNames: [],
+    dialogOpen: false,
+    dateFrom: undefined,
+    dateTo: undefined,
+    loadingDates: false,
   };
 
-  async componentDidMount() {
-    const { match: { params: { type } } } = this.props
-    const selected = estacionItems[type]
-
-
-
-    let i = 0;
+  async loadData(dateFrom, dateTo) {
+    const {
+      match: {
+        params: { type },
+      },
+    } = this.props;
+    const selected = estacionItems[type];
 
     const {
       data: { data },
-    } = await getWeatherStation();
+    } =
+      dateFrom || dateTo
+        ? await getByDateRange(dateFrom, dateTo)
+        : await getWeatherStation();
 
     const dates = data.map((item) => {
-
-
-      return (
-        moment(item.date).get('day') +
-        '/' +
-        moment(item.date).get('month') +
-        '/' +
-        moment(item.date).get('year') +
-        '_At ' +
-        moment(item.date).get('hour') +
-        ':' +
-        moment(item.date).get('minutes') +
-        ':' +
-        moment(item.date).get('seconds')
-      );
+      return moment(item.date).format('MMMM D YYYY, h:mm a');
     });
 
     const chartsData = {};
@@ -69,59 +75,112 @@ class Charts extends Component {
     });
 
     const items = [];
-    const chartNames = []
+    const chartNames = [];
     for (let i in chartsData) {
       const chartData = chartsData[i];
       if (i === selected.type) {
-        chartNames.unshift(i)
+        chartNames.unshift(i);
         items.unshift(
-          <Chart title={dic[i]} chartDAtaY={chartData.y} chartDataX={chartData.x} />,
+          <Chart
+            title={dic[i]}
+            chartDAtaY={chartData.y}
+            chartDataX={chartData.x}
+          />,
         );
-      }
-
-      else {
+      } else {
         items.push(
-          <Chart title={dic[i]} chartDAtaY={chartData.y} chartDataX={chartData.x} />,
+          <Chart
+            title={dic[i]}
+            chartDAtaY={chartData.y}
+            chartDataX={chartData.x}
+          />,
         );
-        chartNames.push(i)
-
+        chartNames.push(i);
       }
-
     }
 
-    this.setState({ items, loading: false, selected, chartNames });
+    this.setState({
+      nameSelected: selected,
+      data,
+      items,
+      loading: false,
+      selected,
+      chartNames,
+    });
+  }
+
+  async componentDidMount() {
+    await this.loadData();
   }
 
   handleChange = (i) => {
-    console.log(i)
-    console.log(this.state.chartNames)
-    console.log(estacionItems)
-    this.setState({ selected: estacionItems.find((item) => item.type === this.state.chartNames[i]) })
-  }
+    console.log(i);
+    console.log(this.state.chartNames);
+    console.log(estacionItems);
+    this.setState({
+      selected: estacionItems.find(
+        (item) => item.type === this.state.chartNames[i],
+      ),
+    });
+  };
+
+  handleSetDates = async (dateFrom, dateTo) => {
+    console.log(dateFrom);
+    console.log(dateTo);
+    this.setState({
+      dialogOpen: false,
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      loadingDates: true,
+    });
+    await this.loadData(dateFrom.toISOString(), dateTo.toISOString());
+    this.setState({
+      loadingDates: false,
+    });
+  };
+
+  downloadCsv = () => {
+    downloadCsvHelper(
+      this.state.data,
+      this.state.selected,
+      this.state.dateFrom,
+      this.state.dateTo,
+    );
+  };
 
   render() {
-
     if (this.state.loading)
-      return <LinearProgress style={{ top: "-30px", position: "relative" }} />
+      return <LinearProgress style={{ top: '-30px', position: 'relative' }} />;
 
-    const { selected } = this.state
+    const { selected, loadingDates, dateFrom, dateTo } = this.state;
     const Icon = selected.icon;
     return (
       <div className="component-charts">
         <Grid container spacing={20}>
           <Grid className="chart-name" container xs={12}>
-            <div className="icon-chart" ><Icon></Icon></div>
-            <h1 >{selected.name}</h1>
+            <div className="icon-chart">
+              <Icon />
+            </div>
+            <h1>{selected.name}</h1>
 
-            <div className="button-flex" style={{ paddingTop: "0px" }}>
-              <Fab variant="extended" style={{ background: "white", marginRight: "20px" }}   >
-                <CalendarToday style={{ marginRight: "10px" }} />
-                Seleccionar intervalo
-            </Fab>
-              <Fab variant="extended" color="primary"   >
-                <CloudDownload style={{ marginRight: "10px" }} />
+            <div className="button-flex" style={{ paddingTop: '0px' }}>
+              <Fab
+                variant="extended"
+                onClick={() =>
+                  this.setState({ ...this.state, dialogOpen: true })
+                }
+                style={{ background: 'white', marginRight: '20px' }}>
+                <CalendarToday style={{ marginRight: '10px' }} />
+                Filtrar por fecha
+              </Fab>
+              <Fab
+                onClick={this.downloadCsv}
+                variant="extended"
+                disabled={this.state.items.length === 0}
+                color="primary">
+                <CloudDownload style={{ marginRight: '10px' }} />
                 Descargar
-            </Fab>
+              </Fab>
             </div>
           </Grid>
           <Grid
@@ -131,13 +190,39 @@ class Charts extends Component {
             direction="row"
             justify="center"
             alignItems="center">
-            <ChartController onChange={this.handleChange} items={this.state.items} />
+            {loadingDates ? (
+              <CircularProgress style={{ marginTop: '50px' }} size={70} />
+            ) : this.state.items.length > 0 ? (
+              <ChartController
+                onChange={this.handleChange}
+                items={this.state.items}
+              />
+            ) : (
+              <Typography
+                style={{ marginTop: '50px' }}
+                color="textSecondary"
+                variant="h4">
+                No hay registros disponibles{' '}
+                <LayersClearIcon
+                  style={{
+                    fontSize: '1em',
+                    position: 'relative',
+                    top: '8px',
+                  }}
+                />
+              </Typography>
+            )}
           </Grid>
         </Grid>
+        <DateSelectDialog
+          defaultDates={[dateFrom, dateTo]}
+          open={this.state.dialogOpen}
+          onFilter={this.handleSetDates}
+          onClose={() => this.setState({ ...this.state, dialogOpen: false })}
+        />
       </div>
     );
   }
 }
 
-
-export default withRouter(Charts) 
+export default withRouter(Charts);

@@ -7,9 +7,6 @@ import LayoutCtx from './ctx/Layout.ctx';
 import Layout from './containers/layout';
 import AjustePanel from './routes/ajuste-panel';
 import { router } from './router';
-const contexts = {
-  authContext: AuthContext
-};
 
 class Main extends Component {
   render() {
@@ -19,7 +16,7 @@ class Main extends Component {
     return (
       <Layout>
         <Switch>
-          {router.map(route => {
+          {router.map((route) => {
             return (
               <Route
                 exact={true}
@@ -33,4 +30,9 @@ class Main extends Component {
     );
   }
 }
+
+const contexts = {
+  authContext: AuthContext,
+};
+
 export default importContexts(injectContexts(Main, contexts), [LayoutCtx]);
